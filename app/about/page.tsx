@@ -11,12 +11,10 @@ export default function AboutPage() {
 
       <div className="mt-4 space-y-3 text-gray-600">
         <p>
-          Course Catalog is a small application for exploring available
-          university courses.
+          Course Catalog is a small application for exploring available university courses.
         </p>
         <p>
-          It is being built for the Advanced Web Technologies course with
-          React, Next.js, and TypeScript.
+          It is being built for the Advanced Web Technologies course with React, Next.js, and TypeScript.
         </p>
       </div>
     </main>
