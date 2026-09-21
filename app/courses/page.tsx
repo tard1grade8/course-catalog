@@ -1,4 +1,4 @@
-import { getCourses } from "../../lib/courses";;
+import { getCourses } from "../../lib/courses";
 import CourseCard from "@/components/CourseCard";
 
 export default async function CoursesPage() {
@@ -8,16 +8,10 @@ export default async function CoursesPage() {
     <main className="p-8 max-w-4xl mx-auto">
       <h1 className="text-3xl font-bold mb-6">Available Courses</h1>
 
-      <div className="grid gap-4 sm:grid-cols-2">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 xl:grid-cols-4">
         {courses.map((course) => (
           <CourseCard
-            key={course.id}
-            id={course.id}
-            title={course.title}
-            description={course.description}
-            credits={course.credits}
-            isElective={course.isElective}
-            likes={course.likes}
+            key={course.id} {...course}
           />
         ))}
       </div>
