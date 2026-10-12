@@ -1,4 +1,4 @@
-import { getCourse, getCourses } from "../../../lib/courses";
+import { getCourse } from "../../../lib/courses";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import LikeButton from "@/components/LikeButton";
@@ -6,13 +6,6 @@ import LikeButton from "@/components/LikeButton";
 type Props = {
   params: Promise<{ id: string }>;
 };
-
-export async function generateStaticParams() {
-  const courses = await getCourses();
-  return courses.map((course) => ({
-    id: course.id,
-  }));
-}
 
 export default async function CourseDetailPage({ params }: Props) {
   const { id } = await params;

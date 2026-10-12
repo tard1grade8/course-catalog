@@ -18,3 +18,5 @@ Build for production:
 ```bash
 npm run build 
 ```
+
+- The `generateStaticParams` function was removed from `app/courses/[id]/page.tsx` because the list of courses is now stored and dynamically managed on the FastAPI backend, rather than being statically generated during the application build process.
