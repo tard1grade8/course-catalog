@@ -2,6 +2,7 @@ import { getCourse } from "../../../lib/courses";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import LikeButton from "@/components/LikeButton";
+import { EnrollForm } from "@/components/EnrollForm";
 
 type Props = {
   params: Promise<{ id: string }>;
@@ -41,8 +42,9 @@ export default async function CourseDetailPage({ params }: Props) {
 
       <div className="mt-6 flex items-center justify-between border-t pt-4">
         <span className="text-sm text-gray-600">Like this course:</span>
-        <LikeButton initialLikes={course.likes} />
+        <LikeButton courseId={course.id} initialLikes={course.likes} />
       </div>
+      <EnrollForm courseId={course.id} />
     </main>
   );
 }
