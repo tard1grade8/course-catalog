@@ -57,3 +57,21 @@ npm run build
 - **Network**: GET `/courses` shows CORS error (red line).
 - **Cause**: Unhandled Python `KeyError` exception resulted in a 500 status code response generated outside of CORS middleware, omitting CORS headers.
 - **How I found it**: Step 2 & 5 of the algorithm: Checked FastAPI terminal and saw a 500 error with Python traceback (`KeyError: 'ofset'`).
+
+
+## Authentication & Running Locally (Lab 9)
+
+1. Make sure the backend API (`course-catalog-api`) is running on `http://localhost:8000`.
+2. Create `.env.local` in the project root:
+   ```env
+   API_URL=http://localhost:8000
+   ```
+3. Install dependencies and start the Next.js dev server:
+   ```bash
+   npm install
+   npm run dev
+   ```
+4. Open `http://localhost:3000/login` (use `http://localhost:3000` so the browser accepts the `Secure` `httpOnly` `session` cookie).
+
+### Session & Logout Guarantee
+Pressing **"Log out"** guarantees that the `session` cookie is erased from the current browser so this device can no longer access protected pages, but it does **not** guarantee immediate server-side revocation of the JWT — if stolen beforehand, the token remains valid until its 15-minute `exp` expires.
